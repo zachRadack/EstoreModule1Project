@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {FormGroup, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-splash-page',
@@ -10,7 +9,11 @@ import {FormGroup, FormControl} from '@angular/forms';
 export class SplashPageComponent {
     constructor(public router: Router) {}
 
-    openLogin(): void{
+    LoginButton(): void{
         this.router.navigate(['Login']);
+    }
+
+    SigninButton(): void{
+        this.router.navigate(['Signin']);
     }
 }
