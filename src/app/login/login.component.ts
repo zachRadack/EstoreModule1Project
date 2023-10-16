@@ -20,8 +20,10 @@ export class LoginComponent {
     constructor(public loginService: LoginService, public router: Router) { }
 
     async LoginButton(): Promise<void> {
-
+        // This is the function that is called when the login button is pressed
         let login = this.loginRef.value;
+
+        // this sends a command to check out current email password combos to see if they match
         if (await this.checkLoginDetails(login)) {
             console.log("Login successful")
             this.router.navigate(["Dashboard"], { skipLocationChange: true });
@@ -39,27 +41,24 @@ export class LoginComponent {
         let Logins: Login[] = [];
         const returnEmails: any  = await lastValueFrom(this.loginService.loadEmails());
 
-        console.log(returnEmails);
-        console.log("Test");
+        // This is a for loop that creates an array of Login objects
+        // While beign seperated is not exactly optimal, this is meant to make it easier to upgrade
+        // later on if we want to add more fields to the login object
         for (let i = 0; i < returnEmails.length; i++) {
             Logins.push(new Login(returnEmails[i].id, returnEmails[i].email, returnEmails[i].password, returnEmails[i].userID));
         }
 
         console.log(Logins);
 
+
         for (let i = 0; i < Logins.length; i++) {
+            // this checks to see if any of the passwords and emails match
             if (loginRef.emailid == Logins[i].email && loginRef.password == Logins[i].password) {
                 this.flags = true;
-                console.log("yay");
                 return true;
-            } else {
-                console.log("nah");
-                console.log(loginRef.emailid);
-                console.log(Logins[i].email);
-                console.log(loginRef.password);
-                console.log(Logins[i].password);
             }
         }
+        // No matching email password combos
         return false;
 
     }
