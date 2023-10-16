@@ -19,7 +19,19 @@
       "email": "admin@t.com",
       "password": "admin",
       "userID":1
-    }
+    },
+    {
+        "id": 2,
+        "email": "adminwife@t.com",
+        "password": "admin1",
+        "userID":2
+      },
+      {
+        "id": 3,
+        "email": "bobinsecure@t.com",
+        "password": "password",
+        "userID":3
+      }
   ],
   "profile": {
     "name": "typicode"
