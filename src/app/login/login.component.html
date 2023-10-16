@@ -1,1 +1,17 @@
-<p>login works!</p>
+<p>Please enter your login details: </p>
+<form [formGroup]="loginRef" (ngSubmit)="LoginButton()">
+    <div class="form-floating">
+    <div>Email:</div>
+    <input type="email" id="floatingInput" class="form-control" placeholder="User@gmail.com" required="" formControlName="emailid">
+    </div>
+    <br>
+    <div>Password:</div>
+    <div class="form-floating">
+    <input type="password" id="floatingPassword" class="form-control" placeholder="Password" required="" formControlName="password">
+    </div>
+    <br>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+
+
+    </form>
+    <span style="color: red;">{{msg}}</span>
