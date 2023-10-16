@@ -10,7 +10,7 @@ export class LoginService {
   constructor(public http:HttpClient) { }    // DI for HttpClient 
 
 
-  checkLoginDetails(loginRef: any): boolean {
+  checkLoginDetailss(loginRef: any): boolean {
     console.log(this.loadEmails());
     if (loginRef.emailid == "admin@t.com" && loginRef.password == "admin") {
       
