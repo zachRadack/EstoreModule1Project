@@ -13,6 +13,14 @@
       "postId": 1
     }
   ],
+  "accounts": [
+    {
+      "id": 1,
+      "email": "admin@t.com",
+      "password": "admin",
+      "userID":1
+    }
+  ],
   "profile": {
     "name": "typicode"
   }
