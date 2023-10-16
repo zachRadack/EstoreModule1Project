@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+    logout(): void{
+        window.location.href = "/login";
+    }
 }
