@@ -20,8 +20,7 @@
         "password": "admin",
         "firstname":"john",
         "lastname":"doe",
-        "address": "new youk",
-        "userID":1
+        "address": "new youk"
       },
       {
           "id": 2,
@@ -29,8 +28,7 @@
           "password": "admin1",
           "firstname":"stephanie",
           "lastname":"doe",
-          "address": "new youk",
-          "userID":2
+          "address": "new youk"
         },
         {
           "id": 3,
@@ -38,8 +36,7 @@
           "password": "password",
           "firstname":"bob",
           "lastname":"insecure",
-          "address": "Cuban Prison",
-          "userID":3
+          "address": "Cuban Prison"
         }
     ],
     "profile": {

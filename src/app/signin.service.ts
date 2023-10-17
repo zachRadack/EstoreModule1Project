@@ -9,10 +9,10 @@ export class SigninService {
 
     constructor(public http: HttpClient) { }    // DI for HttpClient 
 
-    pushClient(newClient: any): boolean {
+    async pushClient(newClient: any): Promise<boolean> {
         try {
             let newClientData = new Signin(newClient.email, newClient.password, newClient.firstname, newClient.lastname, newClient.address);
-            const ClientDetails = this.http.post<Signin[]>("http://localhost:3000/accounts/", newClientData, { responseType: 'json', headers: { 'Content-Type': 'application/json' } });
+            const ClientDetails = this.http.put("http://localhost:3000/accounts/4", JSON.stringify(newClientData));
             console.log("http://localhost:3000/accounts/", Signin);
             console.log(ClientDetails);
 
@@ -25,6 +25,7 @@ export class SigninService {
             console.log(error);
             return false;
         }
+        return false
     }
     log(msg: any) {
         console.log(msg);
