@@ -9,23 +9,21 @@ export class SigninService {
 
     constructor(public http: HttpClient) { }    // DI for HttpClient 
 
-    async pushClient(newClient: any): Promise<boolean> {
-        try {
-            let newClientData = new Signin(newClient.email, newClient.password, newClient.firstname, newClient.lastname, newClient.address);
-            const ClientDetails = this.http.put("http://localhost:3000/accounts/4", JSON.stringify(newClientData));
-            console.log("http://localhost:3000/accounts/", Signin);
-            console.log(ClientDetails);
+    pushClient(newClient: any) {
+        console.log(newClient);
+        let fakedata = {
+            "id": 4,
+            "email": "admin@t.com",
+            "password": "admin",
+            "firstname": "john",
+            "lastname": "doe",
+            "address": "new youk"
+          };
+          console.log(JSON.stringify(fakedata));
+          console.log(JSON.stringify(newClient));
 
-            if (ClientDetails) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (error) {
-            console.log(error);
-            return false;
-        }
-        return false
+        
+        return this.http.post("http://localhost:3000/accounts", JSON.stringify(newClient),{headers:{"Content-Type":"application/json"}})
     }
     log(msg: any) {
         console.log(msg);
