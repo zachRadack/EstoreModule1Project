@@ -1,39 +1,48 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "accounts": [
-    {
-      "id": 1,
-      "email": "admin@t.com",
-      "password": "admin",
-      "userID":1
-    },
-    {
-        "id": 2,
-        "email": "adminwife@t.com",
-        "password": "admin1",
-        "userID":2
+    "posts": [
+      {
+        "id": 1,
+        "title": "json-server",
+        "author": "typicode"
+      }
+    ],
+    "comments": [
+      {
+        "id": 1,
+        "body": "some comment",
+        "postId": 1
+      }
+    ],
+    "accounts": [
+      {
+        "id": 1,
+        "email": "admin@t.com",
+        "password": "admin",
+        "firstname":"john",
+        "lastname":"doe",
+        "address": "new youk",
+        "userID":1
       },
       {
-        "id": 3,
-        "email": "bobinsecure@t.com",
-        "password": "password",
-        "userID":3
-      }
-  ],
-  "profile": {
-    "name": "typicode"
+          "id": 2,
+          "email": "adminwife@t.com",
+          "password": "admin1",
+          "firstname":"stephanie",
+          "lastname":"doe",
+          "address": "new youk",
+          "userID":2
+        },
+        {
+          "id": 3,
+          "email": "bobinsecure@t.com",
+          "password": "password",
+          "firstname":"bob",
+          "lastname":"insecure",
+          "address": "Cuban Prison",
+          "userID":3
+        }
+    ],
+    "profile": {
+      "name": "typicode"
+    }
   }
-}
