@@ -1,1 +1,40 @@
 <p>signin works!</p>
+
+<div>
+    <form [formGroup]="signinRef" (ngSubmit)="signinButton()">
+        <div class="form-floating">
+            <div>First Name:</div>
+            <input type="text" id="floatingfirstame" class="form-control" placeholder="First Name" required="" formControlName="firstname">
+        </div>
+        <br>
+        <div class="form-floating">
+            <div>Last Name:</div>
+            <input type="text" id="floatinglastname" class="form-control" placeholder="Last Name" required="" formControlName="lastname">
+        </div>
+        <br>
+        <div>
+            <div>Address:</div>
+            <input type="text" id="floatingAddress" class="form-control" placeholder="" required="" formControlName="address">
+        </div>
+        <br>
+        <div class="form-floating">
+            <div>Email:</div>
+            <input type="email" id="floatingInput" class="form-control" placeholder="email" required="" formControlName="email">
+        </div>
+        <br>
+        <div class="form-floating">
+            <div>Password:</div>
+            <input type="password" id="floatingPassword" class="form-control" placeholder="Password" required="" formControlName="password">
+        </div>
+        <br>
+        <div class="form-floating">
+            <div>Confirm Password:</div>
+            <input type="password" id="floatingConfirmPassword" class="form-control" placeholder="Confirm Password" required="" formControlName="confirmpassword">
+        </div>
+        <br>
+
+        
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Signin</button>
+    </form>
+
+    <span style="color: red;">{{msg}}</span>

@@ -19,6 +19,15 @@ export class LoginComponent {
     });
     constructor(public loginService: LoginService, public router: Router) { }
 
+    ngOnInit(): void{
+        let obj = sessionStorage.getItem("userName");
+        console.log(obj);
+        if(obj != null){
+            this.router.navigate(["Dashboard"]);
+            
+        }
+
+    }
     async LoginButton(): Promise<void> {
         // This is the function that is called when the login button is pressed
         let login = this.loginRef.value;
@@ -44,20 +53,16 @@ export class LoginComponent {
         // This is a for loop that creates an array of Login objects
         // While beign seperated is not exactly optimal, this is meant to make it easier to upgrade
         // later on if we want to add more fields to the login object
-        for (let i = 0; i < returnEmails.length; i++) {
-            Logins.push(new Login(returnEmails[i].id, returnEmails[i].email, returnEmails[i].password, returnEmails[i].userID));
+        let flag = returnEmails.find((element: any) => element.email == loginRef.emailid && element.password == loginRef.password);
+        console.log(flag);
+        if (flag != undefined) {
+            this.flags = true;
+            
+            sessionStorage.setItem("userName", flag.firstname);
+            sessionStorage.setItem("userEmail", flag.email);
+            return true;
         }
-
-        console.log(Logins);
-
-
-        for (let i = 0; i < Logins.length; i++) {
-            // this checks to see if any of the passwords and emails match
-            if (loginRef.emailid == Logins[i].email && loginRef.password == Logins[i].password) {
-                this.flags = true;
-                return true;
-            }
-        }
+        
         // No matching email password combos
         return false;
 
