@@ -65,7 +65,13 @@
       "confirmpassword": "a",
       "id": "LX3qWGO"
     }
-  ],
+  ],"meetings":{
+    {
+        "id": 1,
+        "clientIdOne": "1",
+        "clientIdTwo": "2"
+    }
+  },
   "profile": {
     "name": "typicode"
   }
