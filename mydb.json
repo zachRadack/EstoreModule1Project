@@ -14,6 +14,16 @@
     }
   ],
   "meetings": [
+    {
+      "meetingDate": "2023-10-27T07:00:00.000Z",
+      "meetingTime": "11:11",
+      "participants": [
+        "zS7ERSs",
+        "fN3Bo6l"
+      ],
+      "meetingTopic": "scfreams",
+      "id": 1
+    }
   ],
   "accounts": [
     {

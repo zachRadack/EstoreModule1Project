@@ -58,31 +58,28 @@ export class MeetingsComponent implements OnInit {
 
 
   scheduleMeeting() {
-
-
-
     if (this.meetingForm.valid) {
       const formData = this.meetingForm.value;
-      console.log(typeof(sessionStorage.getItem('userID')));
       const currentClientId = String(sessionStorage.getItem('userID')); // Assuming 'currentClientId' is stored in session
 
+      // Make sure the current client ID is added to the participants array
+      const participantsWithCurrentClient = [...formData.participants, currentClientId].filter(Boolean); // Remove any null/empty participants
 
       const meetingDetails = {
         meetingDate: formData.meetingDate,
         meetingTime: formData.meetingTime,
-        currentClientId: currentClientId,
-        participants: formData.participants.filter(Boolean), // Remove any null/empty participants
+        participants: participantsWithCurrentClient,
         meetingTopic: formData.meetingTopic
       };
 
       // You can now send 'meetingDetails' to your server or process as required
-
       console.log(meetingDetails);
       this.addMeetingToDb(meetingDetails);
     } else {
       console.error('Form is not valid.');
     }
   }
+
 
   private BASE_URL = 'http://localhost:3000'; // replace with your JSON server URL
 

@@ -10,3 +10,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Server
 
 Use `json-server mydb.json` while in `\EstoreModule1Project` to start the server. Navigate to `http://localhost:3000/` to see the data.
+
+
+## Project Details
+This project is located at 
+
+`https://github.com/zachRadack/EstoreModule1Project`
