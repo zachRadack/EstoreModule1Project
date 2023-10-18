@@ -70,7 +70,7 @@ export class MeetingsComponent implements OnInit {
   private BASE_URL = 'http://localhost:3000'; // replace with your JSON server URL
 
 addMeetingToDb(meeting: any) {
-  return this.http.post(this.BASE_URL, meeting).subscribe(response => {
+  return this.http.post(`${this.BASE_URL}/meetings`, meeting).subscribe(response => {
     console.log('Meeting added:', response);
   }, error => {
     console.error('Error adding meeting:', error);
