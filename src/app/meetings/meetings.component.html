@@ -39,10 +39,9 @@
     <button class="action-button" color="primary" type="submit">Schedule Meeting</button>
   </form>
 </mat-card>
-<div *ngFor="let meeting of meetings" class="meetingsBoard">
+<div *ngFor="let meeting of meetings" class="meeting-container">
   <p>Date: {{ meeting.meetingDate | date:'fullDate' }}</p>
   <p>Time: {{ formatTime(meeting.meetingTime) }}</p>
   <p>Topic: {{ meeting.meetingTopic }}</p>
   <p>Participants: {{ meeting?.participants?.join(', ') }}</p>
-  <p>Inviter Name: {{ meeting.inviterName }}</p>
 </div>

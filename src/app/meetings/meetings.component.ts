@@ -95,15 +95,15 @@ addMeetingToDb(meeting: any) {
 }
 
 getMeetingsForClient(clientId: string) {
-  // Separate requests for meetings set by the client and meetings they're invited to
-  const setByClient$ = this.http.get<any[]>(`${this.BASE_URL}/meetings/?currentClientId=${clientId}`);
-  const invitedTo$ = this.http.get<any[]>(`${this.BASE_URL}/meetings/?otherClientId=${clientId}`);
-
-  // Use forkJoin to combine the results of both requests
-  forkJoin([setByClient$, invitedTo$]).pipe(
-    mergeMap(meetingsArray => {
-      const combinedMeetings = [...meetingsArray[0], ...meetingsArray[1]];
-      const nameFetches = combinedMeetings.map(meeting =>
+  // Request to fetch all meetings
+  const allMeetings$ = this.http.get<any[]>(`${this.BASE_URL}/meetings`);
+  console.log(allMeetings$);
+  console.log("allmeets")
+  allMeetings$.pipe(
+    // First, filter out meetings where the client is a participant
+    map(meetings => meetings.filter(meeting => meeting.participants.includes(clientId))),
+    mergeMap(filteredMeetings => {
+      const nameFetches = filteredMeetings.map(meeting =>
         this.getInviterNameById(meeting.currentClientId).pipe(
           map(name => ({ ...meeting, inviterName: name }))
         )
@@ -116,8 +116,8 @@ getMeetingsForClient(clientId: string) {
   }, error => {
     console.error('Error fetching meetings:', error);
   });
-
 }
+
 
 
 formatTime(time: string): string {
