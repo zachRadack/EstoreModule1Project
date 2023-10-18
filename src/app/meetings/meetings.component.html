@@ -1,9 +1,10 @@
+<a class="action-button" routerLink="goBack()" (click)="goBack()">Dashboard</a>
 <mat-card>
   <form [formGroup]="meetingForm" (ngSubmit)="scheduleMeeting()">
     <!-- Date Picker -->
     <mat-form-field appearance="fill">
       <mat-label>Meeting Date</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="meetingDate">
+      <input matInput [matDatepicker]="picker" formControlName="meetingDate" />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -11,22 +12,25 @@
     <!-- Time Picker (can be replaced with a proper time picker if available) -->
     <mat-form-field appearance="fill">
       <mat-label>Meeting Time</mat-label>
-      <input matInput type="time" formControlName="meetingTime">
+      <input matInput type="time" formControlName="meetingTime" />
     </mat-form-field>
 
     <!-- Other Client's ID -->
     <mat-form-field appearance="fill">
       <mat-label>Other Client's ID</mat-label>
-      <input matInput formControlName="otherClientId">
+      <input matInput formControlName="otherClientId" />
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Schedule Meeting</button>
+    <button mat-raised-button color="primary" type="submit">
+      Schedule Meeting
+    </button>
   </form>
 </mat-card>
-<div *ngFor="let meeting of meetings" class="meetingsBoard">
-  <p>Date: {{ meeting.meetingDate | date:'fullDate' }}</p>
+<div *ngFor="let meeting of meetings" class="meeting-container">
+  <p>Date: {{ meeting.meetingDate | date : "fullDate" }}</p>
   <p>Time: {{ formatTime(meeting.meetingTime) }}</p>
   <p>Other Client ID: {{ meeting.otherClientId }}</p>
   <p>Inviter ID: {{ meeting.currentClientId }}</p>
   <p>Inviter Name: {{ meeting.inviterName }}</p>
+  <mat-divider></mat-divider>
 </div>
