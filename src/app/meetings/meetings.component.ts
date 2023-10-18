@@ -1,6 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component,OnInit} from '@angular/core';
-import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -27,20 +27,35 @@ export class MeetingsComponent implements OnInit {
  constructor(private fb: FormBuilder, private http: HttpClient,public router: Router) {}
 
 
-  ngOnInit(): void {
-    this.initForm();
-    const currentClientId = String(sessionStorage.getItem('userID'));
-    this.getMeetingsForClient(currentClientId);
-
+ ngOnInit(): void {
+  this.initForm();
+  const currentClientId = String(sessionStorage.getItem('userID'));
+  this.getMeetingsForClient(currentClientId);
   }
 
   initForm() {
     this.meetingForm = this.fb.group({
       meetingDate: [null, Validators.required],
       meetingTime: [null, Validators.required],
-      otherClientId: [null, Validators.required]
+      meetingTopic: [null, Validators.required],
+      participants: this.fb.array([])
     });
+    // Optionally add a default participant field
+    this.addParticipant();
   }
+
+  get participants() {
+    return this.meetingForm.get('participants') as FormArray;
+  }
+
+  addParticipant(): void {
+    this.participants.push(this.fb.control(null, Validators.required));
+  }
+
+  removeParticipant(index: number): void {
+    this.participants.removeAt(index);
+  }
+
 
   scheduleMeeting() {
 
@@ -51,11 +66,13 @@ export class MeetingsComponent implements OnInit {
       console.log(typeof(sessionStorage.getItem('userID')));
       const currentClientId = String(sessionStorage.getItem('userID')); // Assuming 'currentClientId' is stored in session
 
+
       const meetingDetails = {
         meetingDate: formData.meetingDate,
         meetingTime: formData.meetingTime,
         currentClientId: currentClientId,
-        otherClientId: formData.otherClientId
+        participants: formData.participants.filter(Boolean), // Remove any null/empty participants
+        meetingTopic: formData.meetingTopic
       };
 
       // You can now send 'meetingDetails' to your server or process as required
@@ -70,7 +87,7 @@ export class MeetingsComponent implements OnInit {
   private BASE_URL = 'http://localhost:3000'; // replace with your JSON server URL
 
 addMeetingToDb(meeting: any) {
-  return this.http.post(this.BASE_URL, meeting).subscribe(response => {
+  return this.http.post(`${this.BASE_URL}/meetings`, meeting).subscribe(response => {
     console.log('Meeting added:', response);
   }, error => {
     console.error('Error adding meeting:', error);

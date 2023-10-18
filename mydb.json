@@ -15,37 +15,15 @@
   ],
   "meetings": [
     {
-      "id": 1,
-      "clientIdOne": "1",
-      "clientIdTwo": "2"
-    },
-    {
-      "meetingDate": "2023-10-19T07:00:00.000Z",
-      "meetingTime": "11:11",
-      "currentClientId": "zS7ERSs",
-      "otherClientId": "LX3qWGO",
-      "id": 2
-    },
-    {
-      "meetingDate": "2023-10-19T07:00:00.000Z",
-      "meetingTime": "00:11",
-      "currentClientId": "zS7ERSs",
-      "otherClientId": "LX3qWGO",
-      "id": 3
-    },
-    {
-      "meetingDate": "2023-10-28T07:00:00.000Z",
-      "meetingTime": "14:00",
-      "currentClientId": "zS7ERSs",
-      "otherClientId": "LX3qWGO",
-      "id": 4
-    },
-    {
       "meetingDate": "2023-10-20T07:00:00.000Z",
-      "meetingTime": "23:53",
-      "currentClientId": "zS7ERSs",
-      "otherClientId": "LX3qWGO",
-      "id": 5
+      "meetingTime": "14:02",
+      "currentClientId": "LX3qWGO",
+      "participants": [
+        "fN3Bo6l",
+        "zS7ERSs"
+      ],
+      "meetingTopic": "beans",
+      "id": 1
     }
   ],
   "accounts": [
