@@ -13,9 +13,44 @@
       "postId": 1
     }
   ],
-  "accounts": [
+  "meetings": [
     {
       "id": 1,
+      "clientIdOne": "1",
+      "clientIdTwo": "2"
+    },
+    {
+      "meetingDate": "2023-10-19T07:00:00.000Z",
+      "meetingTime": "11:11",
+      "currentClientId": "zS7ERSs",
+      "otherClientId": "LX3qWGO",
+      "id": 2
+    },
+    {
+      "meetingDate": "2023-10-19T07:00:00.000Z",
+      "meetingTime": "00:11",
+      "currentClientId": "zS7ERSs",
+      "otherClientId": "LX3qWGO",
+      "id": 3
+    },
+    {
+      "meetingDate": "2023-10-28T07:00:00.000Z",
+      "meetingTime": "14:00",
+      "currentClientId": "zS7ERSs",
+      "otherClientId": "LX3qWGO",
+      "id": 4
+    },
+    {
+      "meetingDate": "2023-10-20T07:00:00.000Z",
+      "meetingTime": "23:53",
+      "currentClientId": "zS7ERSs",
+      "otherClientId": "LX3qWGO",
+      "id": 5
+    }
+  ],
+  "accounts": [
+    {
+      "id": "1",
       "email": "admin@t.com",
       "password": "admin",
       "firstname": "john",
@@ -23,7 +58,7 @@
       "address": "new youk"
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "adminwife@t.com",
       "password": "admin1",
       "firstname": "stephanie",
@@ -31,7 +66,7 @@
       "address": "new youk"
     },
     {
-      "id": 3,
+      "id": "3",
       "email": "bobinsecure@t.com",
       "password": "password",
       "firstname": "bob",
@@ -64,14 +99,26 @@
       "password": "a",
       "confirmpassword": "a",
       "id": "LX3qWGO"
-    }
-  ],"meetings":{
+    },
     {
-        "id": 1,
-        "clientIdOne": "1",
-        "clientIdTwo": "2"
+      "firstname": "fasfas",
+      "lastname": "gasdgsdfhaf",
+      "address": "fxFcz",
+      "email": "va@aca.c",
+      "password": "aaaaaaa",
+      "confirmpassword": "aaaaaaa",
+      "id": "zS7ERSs"
+    },
+    {
+      "firstname": "gdshfjsdfa",
+      "lastname": "agadsgdzsg",
+      "address": "safasfa",
+      "email": "afasg@gf.c",
+      "password": "aaaaaaaaaaaa",
+      "confirmpassword": "aaaaaaaaaaaa",
+      "id": "fN3Bo6l"
     }
-  },
+  ],
   "profile": {
     "name": "typicode"
   }

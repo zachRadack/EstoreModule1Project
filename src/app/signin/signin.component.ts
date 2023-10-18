@@ -5,6 +5,8 @@ import { style } from '@angular/animations';
 import { Signin } from '../signin';
 import { SigninService } from '../signin.service';
 import { lastValueFrom } from 'rxjs';
+import { Login } from '../login';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-signin',
@@ -13,6 +15,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class SigninComponent {
     msg: string = "";
+    flags: boolean = false;
     dataCreation: any;
     signinRef = new FormGroup({
         firstname: new FormControl(),
@@ -23,7 +26,7 @@ export class SigninComponent {
         confirmpassword: new FormControl(),
         id: new FormControl()
     });
-    constructor(public router: Router,public SigninService: SigninService) { }
+    constructor(public router: Router,public SigninService: SigninService,public loginService: LoginService) { }
 
     async signinButton(): Promise<void> {
         // This is the function that is called when the signin button is pressed
@@ -32,6 +35,8 @@ export class SigninComponent {
             this.SigninService.pushClient(signin).subscribe(data =>console.log(data));
             sessionStorage.setItem("userName", signin.firstname);
             sessionStorage.setItem("userEmail", signin.email);
+            let login = {"emailid": signin.email, "password": signin.password}
+            this.checkLoginDetails(login);
             this.router.navigate(["Login"]);
 
         } else {
@@ -41,7 +46,31 @@ export class SigninComponent {
     }
 
 
+    async checkLoginDetails(loginRef: any): Promise<boolean> {
+      //Logins:Array<Login> = [];
+      let Logins: Login[] = [];
+      const returnEmails: any  = await lastValueFrom(this.loginService.loadEmails());
 
-    
+      // This is a for loop that creates an array of Login objects
+      // While beign seperated is not exactly optimal, this is meant to make it easier to upgrade
+      // later on if we want to add more fields to the login object
+      let flag = returnEmails.find((element: any) => element.email == loginRef.emailid && element.password == loginRef.password);
+      console.log(flag);
+      if (flag != undefined) {
+          this.flags = true;
+
+          sessionStorage.setItem("userName", flag.firstname);
+          sessionStorage.setItem("userEmail", flag.email);
+          sessionStorage.setItem("userID", flag.id);
+          return true;
+      }
+
+      // No matching email password combos
+      return false;
+
+  }
+
+
+
 
 }
