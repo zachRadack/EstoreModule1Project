@@ -24,7 +24,7 @@ export class LoginComponent {
         console.log(obj);
         if(obj != null){
             this.router.navigate(["Dashboard"]);
-            
+
         }
 
     }
@@ -48,6 +48,8 @@ export class LoginComponent {
     async checkLoginDetails(loginRef: any): Promise<boolean> {
         //Logins:Array<Login> = [];
         let Logins: Login[] = [];
+        console.log(loginRef);
+        console.log("loginRef");
         const returnEmails: any  = await lastValueFrom(this.loginService.loadEmails());
 
         // This is a for loop that creates an array of Login objects
@@ -57,12 +59,13 @@ export class LoginComponent {
         console.log(flag);
         if (flag != undefined) {
             this.flags = true;
-            
+
             sessionStorage.setItem("userName", flag.firstname);
             sessionStorage.setItem("userEmail", flag.email);
+            sessionStorage.setItem("userID", flag.id);
             return true;
         }
-        
+
         // No matching email password combos
         return false;
 
