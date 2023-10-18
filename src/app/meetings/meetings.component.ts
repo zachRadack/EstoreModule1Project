@@ -8,6 +8,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {ThemePalette} from '@angular/material/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, forkJoin, map, mergeMap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-meetings',
@@ -23,7 +24,7 @@ export class MeetingsComponent implements OnInit {
  meetings: any[] = [];
 
 
- constructor(private fb: FormBuilder, private http: HttpClient) {}
+ constructor(private fb: FormBuilder, private http: HttpClient,public router: Router) {}
 
 
   ngOnInit(): void {
@@ -114,6 +115,9 @@ getInviterNameById(id: string): Observable<string> {
   return this.http.get<any>(`${this.BASE_URL}/accounts?id=${id}`).pipe(
     map((accounts: string | any[]) => accounts.length ? `${accounts[0].firstname} ${accounts[0].lastname}` : 'Unknown')
   );
+}
+goBack() {
+  this.router.navigate(['Dashboard']); // Replace 'path-to-your-previous-route' with your actual route
 }
 
 }

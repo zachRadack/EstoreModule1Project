@@ -1,6 +1,10 @@
-<h1>Welcome {{userName}}</h1>
-<h3>You unquie userid is : {{userUnquiueId}}</h3>
-<a routerLink="meetings()" (click)="meetingSetup()">Setup A meeting</a>
-<br>
-<br>
-<a routerLink="logout()" (click)="logout()">Logout</a>
+<div class="dashboard-container">
+  <h1>Welcome {{ userName }}</h1>
+  <h3>Your unique user ID is: {{ userUnquiueId }}</h3>
+  <div class="actions">
+    <a class="action-button" routerLink="meetings()" (click)="meetingSetup()"
+      >Setup A Meeting</a
+    >
+    <a class="action-button" routerLink="logout()" (click)="logout()">Logout</a>
+  </div>
+</div>

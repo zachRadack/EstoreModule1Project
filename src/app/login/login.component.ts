@@ -70,5 +70,10 @@ export class LoginComponent {
         return false;
 
     }
+
+    goBack() {
+      this.router.navigate(['']); // Replace 'path-to-your-previous-route' with your actual route
+    }
+
 }
 

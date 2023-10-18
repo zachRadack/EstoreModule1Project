@@ -1,13 +1,9 @@
-<div>
-
-
-This page is dedicated to handeling meetings
-
-Would you like to:
-
-Login or create sign up
-
-<button class="w-100 btn btn-lg btn-primary" type="submit" (click)="LoginButton()">Login</button>
-<button class="w-100 btn btn-lg btn-primary" type="submit" (click)="SigninButton()">Sign in</button>
-
+<div class="splash-container">
+  <h2>Meeting Management</h2>
+  <p>This page is dedicated to handling meetings.</p>
+  <p>Would you like to:</p>
+  <div class="action-buttons">
+    <button class="action-button" (click)="LoginButton()">Login</button>
+    <button class="action-button" (click)="SigninButton()">Sign Up</button>
+  </div>
 </div>

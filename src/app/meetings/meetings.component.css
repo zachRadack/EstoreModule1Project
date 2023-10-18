@@ -1,6 +1,76 @@
-.meetingsBoard {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color: blueviolet;
-  outline: auto;
+/* General styling for the component */
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Styling for the Mat Card */
+mat-card {
+  max-width: 600px;
+  width: 100%;
+  margin: 1em 0;
+  padding: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Meeting form fields */
+mat-form-field {
+  width: 100%;
+  margin: 0.5em 0;
+}
+
+/* Button styling */
+button {
+  display: block;
+  margin-top: 1em;
+}
+
+/* Meeting display styling */
+div[ngFor] {
+  max-width: 600px;
+  width: 100%;
+  padding: 1em;
+  margin: 1em 0;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+div[ngFor] p {
+  margin: 0.5em 0;
+  font-size: 1em;
+  color: #333;
+}
+
+.meeting-container {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+mat-divider {
+  margin: 16px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+div[ngFor] p {
+  margin: 8px 0;
+  font-size: 0.95em;
+  color: #555;
+}
+button[mat-icon-button] {
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.15);
 }
