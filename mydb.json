@@ -14,28 +14,6 @@
     }
   ],
   "meetings": [
-    {
-      "meetingDate": "2023-10-20T07:00:00.000Z",
-      "meetingTime": "14:02",
-      "participants": [
-        "LX3qWGO",
-        "fN3Bo6l",
-        "zS7ERSs"
-      ],
-      "meetingTopic": "beans",
-      "id": 1
-    },
-    {
-      "meetingDate": "2023-10-27T07:00:00.000Z",
-      "meetingTime": "02:22",
-      "participants": [
-        "LX3qWGO",
-        "fN3Bo6l",
-        "zS7ERSs"
-      ],
-      "meetingTopic": "MORE BEANS BABY",
-      "id": 2
-    }
   ],
   "accounts": [
     {
