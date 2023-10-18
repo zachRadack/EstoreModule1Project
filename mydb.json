@@ -14,20 +14,6 @@
     }
   ],
   "meetings": [
-    {
-      "meetingDate": "2023-10-19T07:00:00.000Z",
-      "meetingTime": "11:11",
-      "currentClientId": "zS7ERSs",
-      "otherClientId": "LX3qWGO",
-      "id": 2
-    },
-    {
-      "meetingDate": "2023-10-20T07:00:00.000Z",
-      "meetingTime": "12:07",
-      "currentClientId": "LX3qWGO",
-      "otherClientId": "zS7ERSs",
-      "id": 3
-    }
   ],
   "accounts": [
     {

@@ -4,33 +4,44 @@
     <!-- Date Picker -->
     <mat-form-field appearance="fill">
       <mat-label>Meeting Date</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="meetingDate" />
+      <input matInput [matDatepicker]="picker" formControlName="meetingDate">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <!-- Time Picker (can be replaced with a proper time picker if available) -->
+    <!-- Time Picker -->
     <mat-form-field appearance="fill">
       <mat-label>Meeting Time</mat-label>
-      <input matInput type="time" formControlName="meetingTime" />
+      <input matInput type="time" formControlName="meetingTime">
     </mat-form-field>
 
-    <!-- Other Client's ID -->
+    <!-- Meeting Topic -->
     <mat-form-field appearance="fill">
-      <mat-label>Other Client's ID</mat-label>
-      <input matInput formControlName="otherClientId" />
+      <mat-label>Meeting Topic</mat-label>
+      <input matInput formControlName="meetingTopic">
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">
-      Schedule Meeting
-    </button>
+    <!-- Participants (for simplicity, adding three fields. You can expand this logic or use dynamic forms to add more fields) -->
+    <div formArrayName="participants">
+      <div *ngFor="let participant of participants.controls; let i=index">
+        <mat-form-field appearance="fill">
+          <mat-label>Participant {{i+1}} ID</mat-label>
+          <input matInput [formControlName]="i">
+        </mat-form-field>
+        <button class="action-button" style="background-color: lightcoral;" (click)="removeParticipant(i)">Remove Participant {{i+1}}</button>
+        <br>
+        <br>
+
+      </div>
+    </div>
+    <button class="action-button" (click)="addParticipant()">Add Participant</button>
+
+    <button class="action-button" color="primary" type="submit">Schedule Meeting</button>
   </form>
 </mat-card>
 <div *ngFor="let meeting of meetings" class="meeting-container">
-  <p>Date: {{ meeting.meetingDate | date : "fullDate" }}</p>
+  <p>Date: {{ meeting.meetingDate | date:'fullDate' }}</p>
   <p>Time: {{ formatTime(meeting.meetingTime) }}</p>
-  <p>Other Client ID: {{ meeting.otherClientId }}</p>
-  <p>Inviter ID: {{ meeting.currentClientId }}</p>
-  <p>Inviter Name: {{ meeting.inviterName }}</p>
-  <mat-divider></mat-divider>
+  <p>Topic: {{ meeting.meetingTopic }}</p>
+  <p>Participants: {{ meeting?.participants?.join(', ') }}</p>
 </div>
